@@ -1,0 +1,94 @@
+.ion-veg{
+	content: url('../img/veg.gif');
+}
+.ion-nonveg{
+	content: url('../img/nonveg.gif');
+}
+.cart-action {
+	padding: 10px 10px 0px 10px;
+    background-color: #f6f8f7;
+    border-top: 1px solid #ccc;
+}
+.cart-action ul.pricelist>li {
+    font-size: 1.2em;
+    padding: 2px 0px;
+}
+.cart-action .total {
+	padding-top: 15px;
+    font-size: 2em;
+}
+.cart-action .button-large{
+	font-size: 1.5em;
+    font-weight: bold;
+}
+span.price {
+	float: right;
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin-left: 56.6%;
+    margin-top: 10.2%;
+    height: 50px;
+    line-height: 35px !important;
+    width: 100px;
+    border-radius: 0 !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+
+.btn {
+	display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -ms-touch-action: manipulation;
+    touch-action: manipulation;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-image: none;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #5bc0de;
+    border-color: #46b8da;
+}
+
+.btn-info:hover, .btn-info:focus {
+    color: #fff;
+    background-color: #31b0d5;
+    border-color: #269abc;
+}
+
+#uploadFile {
+	position: absolute;
+    margin-left: 31%;
+    margin-top: 10%;
+    padding: 10px;
+    width: 250px;
+    height: 50px;
+    font-size: 16px;
+}

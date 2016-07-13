@@ -1,0 +1,178 @@
+<ion-view title="New Order" hide-back-button="true" id="page1" class=" ">
+    <ion-content class="has-header" scroll="false">
+        <div class="row">
+            <div class="col col-40" style="border-right: 2px solid #ddd;">
+                <ion-scroll direction="y" style="max-height:700px;height:695px;">
+                    <ion-list ng-hide="nomenu">
+                        <div ng-repeat="group in groups">
+                            <ion-item class="item-stable" ng-click="toggleGroup(group)" ng-class="{active: isGroupShown(group)}">
+                                <i class="icon" ng-class="isGroupShown(group) ? 'ion-minus' : 'ion-plus'"></i> &nbsp; {{group.name}}
+                            </ion-item>
+                            <ion-item class="item-accordion" ng-show="isGroupShown(group)">
+                                <div class="card" ng-if="!item.isordered" ng-click="addtoorder(item, $index, group)" ng-repeat="item in group.items | filter:item">
+                                    <div class="item item-avatar">
+                                        <img ng-class="isVeg(group.type) ? 'ion-veg' : 'ion-nonveg'" style="border-radius: 0;">
+                                        <h2>{{item.name}}</h2>
+                                        <p>&#8377;&nbsp;{{item.price}}</p>
+                                    </div>
+                                </div>
+                            </ion-item>
+                        </div>
+                    </ion-list>
+                </ion-scroll>
+            </div>
+            <div class="col col-60">
+                <h3 style="color: #999;padding: 10px;">Your Order</h3>
+                <ion-scroll direction="y" style="max-height:430px;height:430px;">
+                    <ul class="list">
+                        <li class="item">
+                            <div style="display: inline-flex; float: left;">
+                                <h2 style="position: absolute;top: 25px;font-size: 18px;">Paneer pakoda</h2>
+                            </div>
+                            <p style="position: absolute;top: 25px;font-size: 18px;right: 25px;color: #000000;">&#8377;&nbsp;220</p>
+                            <div class="button-bar" style="float: none;right: 0px;width:35%;margin-top:2px;margin-right: 0px;margin-left: 270px;">
+                                <a class="button button-small icon ion-minus-round" ng-click="removeQty(item)" style="border-color: #ddd #fff #ddd #ddd;padding:0"></a>
+                                <a class="button button-small button-light button-outline" style="border-color: #ddd #fff;line-height: 2;font-size: 16px;padding: 0;color:#666;" ng-bind="getQty(item) || 0"></a>
+                                <a class="button button-small icon ion-plus-round" ng-click="addQty(item, qtycount)" style="border-color: #ddd #ddd #ddd #fff;padding:0"></a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div style="display: inline-flex; float: left;">
+                                <h2 style="position: absolute;top: 25px;font-size: 18px;">Paneer pakoda</h2>
+                            </div>
+                            <p style="position: absolute;top: 25px;font-size: 18px;right: 25px;color: #000000;">&#8377;&nbsp;220</p>
+                            <div class="button-bar" style="float: none;right: 0px;width:35%;margin-top:2px;margin-right: 0px;margin-left: 270px;">
+                                <a class="button button-small icon ion-minus-round" ng-click="removeQty(item)" style="border-color: #ddd #fff #ddd #ddd;padding:0"></a>
+                                <a class="button button-small button-light button-outline" style="border-color: #ddd #fff;line-height: 2;font-size: 16px;padding: 0;color:#666;" ng-bind="getQty(item) || 0"></a>
+                                <a class="button button-small icon ion-plus-round" ng-click="addQty(item, qtycount)" style="border-color: #ddd #ddd #ddd #fff;padding:0"></a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div style="display: inline-flex; float: left;">
+                                <h2 style="position: absolute;top: 25px;font-size: 18px;">Paneer pakoda</h2>
+                            </div>
+                            <p style="position: absolute;top: 25px;font-size: 18px;right: 25px;color: #000000;">&#8377;&nbsp;220</p>
+                            <div class="button-bar" style="float: none;right: 0px;width:35%;margin-top:2px;margin-right: 0px;margin-left: 270px;">
+                                <a class="button button-small icon ion-minus-round" ng-click="removeQty(item)" style="border-color: #ddd #fff #ddd #ddd;padding:0"></a>
+                                <a class="button button-small button-light button-outline" style="border-color: #ddd #fff;line-height: 2;font-size: 16px;padding: 0;color:#666;" ng-bind="getQty(item) || 0"></a>
+                                <a class="button button-small icon ion-plus-round" ng-click="addQty(item, qtycount)" style="border-color: #ddd #ddd #ddd #fff;padding:0"></a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div style="display: inline-flex; float: left;">
+                                <h2 style="position: absolute;top: 25px;font-size: 18px;">Paneer pakoda</h2>
+                            </div>
+                            <p style="position: absolute;top: 25px;font-size: 18px;right: 25px;color: #000000;">&#8377;&nbsp;220</p>
+                            <div class="button-bar" style="float: none;right: 0px;width:35%;margin-top:2px;margin-right: 0px;margin-left: 270px;">
+                                <a class="button button-small icon ion-minus-round" ng-click="removeQty(item)" style="border-color: #ddd #fff #ddd #ddd;padding:0"></a>
+                                <a class="button button-small button-light button-outline" style="border-color: #ddd #fff;line-height: 2;font-size: 16px;padding: 0;color:#666;" ng-bind="getQty(item) || 0"></a>
+                                <a class="button button-small icon ion-plus-round" ng-click="addQty(item, qtycount)" style="border-color: #ddd #ddd #ddd #fff;padding:0"></a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div style="display: inline-flex; float: left;">
+                                <h2 style="position: absolute;top: 25px;font-size: 18px;">Paneer pakoda</h2>
+                            </div>
+                            <p style="position: absolute;top: 25px;font-size: 18px;right: 25px;color: #000000;">&#8377;&nbsp;220</p>
+                            <div class="button-bar" style="float: none;right: 0px;width:35%;margin-top:2px;margin-right: 0px;margin-left: 270px;">
+                                <a class="button button-small icon ion-minus-round" ng-click="removeQty(item)" style="border-color: #ddd #fff #ddd #ddd;padding:0"></a>
+                                <a class="button button-small button-light button-outline" style="border-color: #ddd #fff;line-height: 2;font-size: 16px;padding: 0;color:#666;" ng-bind="getQty(item) || 0"></a>
+                                <a class="button button-small icon ion-plus-round" ng-click="addQty(item, qtycount)" style="border-color: #ddd #ddd #ddd #fff;padding:0"></a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div style="display: inline-flex; float: left;">
+                                <h2 style="position: absolute;top: 25px;font-size: 18px;">Paneer pakoda</h2>
+                            </div>
+                            <p style="position: absolute;top: 25px;font-size: 18px;right: 25px;color: #000000;">&#8377;&nbsp;220</p>
+                            <div class="button-bar" style="float: none;right: 0px;width:35%;margin-top:2px;margin-right: 0px;margin-left: 270px;">
+                                <a class="button button-small icon ion-minus-round" ng-click="removeQty(item)" style="border-color: #ddd #fff #ddd #ddd;padding:0"></a>
+                                <a class="button button-small button-light button-outline" style="border-color: #ddd #fff;line-height: 2;font-size: 16px;padding: 0;color:#666;" ng-bind="getQty(item) || 0"></a>
+                                <a class="button button-small icon ion-plus-round" ng-click="addQty(item, qtycount)" style="border-color: #ddd #ddd #ddd #fff;padding:0"></a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div style="display: inline-flex; float: left;">
+                                <h2 style="position: absolute;top: 25px;font-size: 18px;">Paneer pakoda</h2>
+                            </div>
+                            <p style="position: absolute;top: 25px;font-size: 18px;right: 25px;color: #000000;">&#8377;&nbsp;220</p>
+                            <div class="button-bar" style="float: none;right: 0px;width:35%;margin-top:2px;margin-right: 0px;margin-left: 270px;">
+                                <a class="button button-small icon ion-minus-round" ng-click="removeQty(item)" style="border-color: #ddd #fff #ddd #ddd;padding:0"></a>
+                                <a class="button button-small button-light button-outline" style="border-color: #ddd #fff;line-height: 2;font-size: 16px;padding: 0;color:#666;" ng-bind="getQty(item) || 0"></a>
+                                <a class="button button-small icon ion-plus-round" ng-click="addQty(item, qtycount)" style="border-color: #ddd #ddd #ddd #fff;padding:0"></a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div style="display: inline-flex; float: left;">
+                                <h2 style="position: absolute;top: 25px;font-size: 18px;">Paneer pakoda</h2>
+                            </div>
+                            <p style="position: absolute;top: 25px;font-size: 18px;right: 25px;color: #000000;">&#8377;&nbsp;220</p>
+                            <div class="button-bar" style="float: none;right: 0px;width:35%;margin-top:2px;margin-right: 0px;margin-left: 270px;">
+                                <a class="button button-small icon ion-minus-round" ng-click="removeQty(item)" style="border-color: #ddd #fff #ddd #ddd;padding:0"></a>
+                                <a class="button button-small button-light button-outline" style="border-color: #ddd #fff;line-height: 2;font-size: 16px;padding: 0;color:#666;" ng-bind="getQty(item) || 0"></a>
+                                <a class="button button-small icon ion-plus-round" ng-click="addQty(item, qtycount)" style="border-color: #ddd #ddd #ddd #fff;padding:0"></a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div style="display: inline-flex; float: left;">
+                                <h2 style="position: absolute;top: 25px;font-size: 18px;">Paneer pakoda</h2>
+                            </div>
+                            <p style="position: absolute;top: 25px;font-size: 18px;right: 25px;color: #000000;">&#8377;&nbsp;220</p>
+                            <div class="button-bar" style="float: none;right: 0px;width:35%;margin-top:2px;margin-right: 0px;margin-left: 270px;">
+                                <a class="button button-small icon ion-minus-round" ng-click="removeQty(item)" style="border-color: #ddd #fff #ddd #ddd;padding:0"></a>
+                                <a class="button button-small button-light button-outline" style="border-color: #ddd #fff;line-height: 2;font-size: 16px;padding: 0;color:#666;" ng-bind="getQty(item) || 0"></a>
+                                <a class="button button-small icon ion-plus-round" ng-click="addQty(item, qtycount)" style="border-color: #ddd #ddd #ddd #fff;padding:0"></a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div style="display: inline-flex; float: left;">
+                                <h2 style="position: absolute;top: 25px;font-size: 18px;">Paneer pakoda</h2>
+                            </div>
+                            <p style="position: absolute;top: 25px;font-size: 18px;right: 25px;color: #000000;">&#8377;&nbsp;220</p>
+                            <div class="button-bar" style="float: none;right: 0px;width:35%;margin-top:2px;margin-right: 0px;margin-left: 270px;">
+                                <a class="button button-small icon ion-minus-round" ng-click="removeQty(item)" style="border-color: #ddd #fff #ddd #ddd;padding:0"></a>
+                                <a class="button button-small button-light button-outline" style="border-color: #ddd #fff;line-height: 2;font-size: 16px;padding: 0;color:#666;" ng-bind="getQty(item) || 0"></a>
+                                <a class="button button-small icon ion-plus-round" ng-click="addQty(item, qtycount)" style="border-color: #ddd #ddd #ddd #fff;padding:0"></a>
+                            </div>
+                        </li>
+                        <li class="item">
+                            <div style="display: inline-flex; float: left;">
+                                <h2 style="position: absolute;top: 25px;font-size: 18px;">Paneer pakoda</h2>
+                            </div>
+                            <p style="position: absolute;top: 25px;font-size: 18px;right: 25px;color: #000000;">&#8377;&nbsp;220</p>
+                            <div class="button-bar" style="float: none;right: 0px;width:35%;margin-top:2px;margin-right: 0px;margin-left: 270px;">
+                                <a class="button button-small icon ion-minus-round" ng-click="removeQty(item)" style="border-color: #ddd #fff #ddd #ddd;padding:0"></a>
+                                <a class="button button-small button-light button-outline" style="border-color: #ddd #fff;line-height: 2;font-size: 16px;padding: 0;color:#666;" ng-bind="getQty(item) || 0"></a>
+                                <a class="button button-small icon ion-plus-round" ng-click="addQty(item, qtycount)" style="border-color: #ddd #ddd #ddd #fff;padding:0"></a>
+                            </div>
+                        </li>
+                    </ul>
+                </ion-scroll>
+                <div class="cart-action">
+                    <ul class="pricelist">
+                        <li>
+                            <span class="title">Subtotal</span>
+                            <span class="price">Rs. 200</span>
+                        </li>
+                        <li>
+                            <span class="title">Service fee (10 %)</span>
+                            <span class="price">Rs. 20</span>
+                        </li>
+                        <li>
+                            <span class="title">VAT (5 %)</span>
+                            <span class="price">Rs. 10</span>
+                        </li>
+                    </ul>
+                    <div class="total">
+                        <span class="title">Total</span>
+                        <span class="price">Rs. 200.00</span>
+                    </div>
+                    <div class="button-bar" style="margin-top:30px;">
+                        <a class="button button-assertive button-large">Cancle Order</a>
+                        <a class="button button-balanced button-large">Place Order</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

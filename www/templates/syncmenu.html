@@ -1,0 +1,10 @@
+<ion-view title="Sync Menu" hide-back-button="true" id="syncmenu" class=" ">
+    <ion-content padding="true" class="has-header">
+        <!-- <input onchange="angular.element(this).scope().fileChanged()" type="file" accept=".csv" id="fileInput" class="inputfile" /> -->
+        <p style="display:inline"><input ng-model="selectedfile" id="uploadFile" type="text" disabled="disabled" placeholder="Choose File"></p>
+        <div class="fileUpload btn btn-info">
+            <span>Upload</span>
+            <input onchange="angular.element(this).scope().fileChanged()" type="file" accept=".csv" id="fileInput" class="upload" />
+        </div>
+    </ion-content>
+</ion-view>
